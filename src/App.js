@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+// COMPONENTS
+import Header from './components/Header/Header.component';
+import PostsContainer from './components/PostsContainer/PostsContainer.component';
 // MATERIAL UI
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { Switch } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 // CSS
 import './App.css';
 
 function App() {
 
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   const theme = createMuiTheme({
     palette: {
@@ -16,13 +18,13 @@ function App() {
     },
   });
 
+  const handleChange = () => setDarkMode(!darkMode)
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Switch checked={darkMode} color='primary' onChange={() => setDarkMode(!darkMode)} />
-      <div>
-        <h1>Hello World</h1>
-      </div>
+      <Header currentTheme={theme} isDarkMode={darkMode} onClick={handleChange} />
+      <PostsContainer />
     </ThemeProvider>
   );
 }
