@@ -2,8 +2,6 @@ import React from 'react'
 // MATERIAL UI
 import { Avatar, Card, CardHeader, CardMedia, CardContent, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-// CSS
-import './Post.styles.css';
 
 const useStyles = makeStyles(theme => ({
     root: {

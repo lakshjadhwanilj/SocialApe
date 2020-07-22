@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+// FIREBASE
+import { firestore } from '../../firebase/firebase.utils';
 // MATERIAL UI
-// import { Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 // COMPONENTS
 import Post from '../Post/Post.component';
@@ -13,26 +14,25 @@ const useStyles = makeStyles({
 
 const PostsContainer = props => {
 
-    const [posts, setPosts] = useState([
-        {
-            username: 'lakshjadhwanilj',
-            caption: 'React is the best JavaScript library!',
-            imageUrl: 'https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://www.filepicker.io/api/file/fGWjtyQtG4JE7UXgaPAN'
-        },
-        {
-            username: 'testuser',
-            caption: 'Love Coding!',
-            imageUrl: 'https://cdn.auth0.com/blog/illustrations/reactjs.png'
-        }
-    ]);
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        firestore.collection('posts').onSnapshot(snapshot => {
+            setPosts(snapshot.docs.map(doc => ({
+                id: doc.id,
+                post: doc.data()
+            })));
+        });
+    }, []);
 
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
             {
-                posts.map(post =>
+                posts.map(({ id, post }) =>
                     <Post
+                        key={id}
                         username={post.username}
                         caption={post.caption}
                         imageUrl={post.imageUrl}
