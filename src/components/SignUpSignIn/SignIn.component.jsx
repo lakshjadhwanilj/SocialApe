@@ -10,6 +10,16 @@ const useStyles = makeStyles({
         padding: 20,
         width: 500,
         textAlign: 'center'
+    },
+    formContainer: {
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    input: {
+        margin: 10
+    },
+    inputfield: {
+        width: '95%'
     }
 });
 
@@ -36,7 +46,6 @@ const SignIn = props => {
         } catch (err) {
             console.error(err);
         }
-
     }
 
     const handleChange = e => {
@@ -51,29 +60,37 @@ const SignIn = props => {
         <Paper className={classes.paper}>
             <h2>Sign In</h2>
             <p>Sign in to the app!</p>
-            <Grid container direction='column' alignItems='center' justify='space-around' spacing={4}>
+            <Grid container direction='column' className={classes.formContainer}>
                 <form noValidate autoComplete='off' onSubmit={handleSubmit}>
-                    <Grid item>
+                    <Grid item className={classes.input}>
                         <TextField
+                            className={classes.inputfield}
                             name='email'
                             value={email}
                             onChange={handleChange}
                             label='Email' />
                     </Grid>
-                    <Grid item>
+                    <Grid item className={classes.input}>
                         <TextField
+                            className={classes.inputfield}
                             name='password'
                             value={password}
                             onChange={handleChange}
                             label='Password' />
                     </Grid>
                     <Grid item>
-                        <Button variant='contained' color='primary' type='submit'>
-                            SIGN IN
-                        </Button>
-                        <Button variant='contained' color='secondary' onClick={signInWithGoogle} >
-                            SIGN UP with Google
-                        </Button>
+                        <Grid container className={classes.formContainer}>
+                            <Grid item className={classes.input}>
+                                <Button variant='contained' color='primary' type='submit'>
+                                    SIGN IN
+                                </Button>
+                            </Grid>
+                            <Grid item className={classes.input}>
+                                <Button variant='contained' color='secondary' onClick={signInWithGoogle} >
+                                    SIGN IN with Google
+                                </Button>
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </form>
             </Grid>

@@ -19,6 +19,12 @@ function App() {
   const theme = createMuiTheme({
     palette: {
       type: darkMode ? 'dark' : 'light',
+      primary: {
+        main: '#90caf9'
+      },
+      secondary: {
+        main: '#f48fb1'
+      }
     },
   });
   const handleChange = () => setDarkMode(!darkMode)

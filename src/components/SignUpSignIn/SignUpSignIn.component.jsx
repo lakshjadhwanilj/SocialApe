@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // MATERIAL UI
 import { makeStyles } from '@material-ui/core/styles';
-import { Modal, Fade, Button, Grid } from '@material-ui/core';
+import { Modal, Fade, Button, Grid, Typography } from '@material-ui/core';
 import BackDrop from '@material-ui/core/Backdrop';
 // COMPONENTS
 import SignUp from './SignUp.component';
@@ -10,7 +10,13 @@ import SignIn from './SignIn.component';
 const useStyles = makeStyles({
     root: {
         maxWidth: 500,
-        margin: 'auto'
+        minHeight: '18.25rem',
+        margin: 'auto',
+        justifyContent: 'center'
+    },
+    textContainer: {
+        textAlign: 'center',
+        marginBottom: 10,
     },
     modal: {
         display: 'flex',
@@ -29,10 +35,10 @@ const SignUpSignIn = props => {
 
     return (
         <div>
-
-            <Grid className={classes.root} container direction='column' justify='center' alignItems='center'>
-                <Grid item>
-                    Sign Up / Sign In
+            <Grid className={classes.root} container direction='column' >
+                <Grid className={classes.textContainer} item>
+                    <Typography variant='h6'>Welcome to SocialApe!</Typography>
+                    <Typography variant='subtitle2'>Sign Up / Sign In Now to join fellow Apes</Typography>
                 </Grid>
                 <Grid container direction='row' justify='space-around' alignItems='center'>
                     <Grid item>
@@ -81,7 +87,6 @@ const SignUpSignIn = props => {
                 </Fade>
             </Modal>
         </div>
-
     );
 };
 
