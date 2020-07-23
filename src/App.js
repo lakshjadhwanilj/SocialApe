@@ -6,6 +6,7 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import Header from './components/Header/Header.component';
 import SignUpSignIn from './components/SignUpSignIn/SignUpSignIn.component';
 import PostsContainer from './components/PostsContainer/PostsContainer.component';
+import UploadContainer from './components/UploadContainer/UploadContainer.component';
 // MATERIAL UI
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -60,12 +61,12 @@ function App() {
         <Route exact path='/' render={() =>
           currentUser ? (<PostsContainer />) : (<Redirect to='/signupsignin' />)}
         />
+        <Route path='/upload' render={() =>
+          currentUser ? (<UploadContainer />) : (<Redirect to='/signupsignin' />)} />
         <Route exact path='/signupsignin' render={() =>
           currentUser ? (<Redirect to='/' />) : (<SignUpSignIn />)}
         />
       </Switch>
-      {/* <SignUpSignIn /> */}
-      {/* <PostsContainer /> */}
     </ThemeProvider>
   );
 }

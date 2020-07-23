@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // FIREBASE
-import { auth, createUserProfileDocument, signInWithGoogle } from '../../firebase/firebase.utils';
+import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 // MATERIAL UI
 import { makeStyles } from '@material-ui/core/styles';
 import { Paper, Button, Grid, TextField } from '@material-ui/core';
@@ -10,10 +10,6 @@ const useStyles = makeStyles({
         padding: 20,
         width: 500,
         textAlign: 'center'
-    },
-    formContainer: {
-        alignItems: 'center',
-        justifyContent: 'center'
     },
     input: {
         margin: 10
@@ -72,6 +68,7 @@ const SignUp = props => {
                 <form noValidate autoComplete='off' onSubmit={handleSubmit}>
                     <Grid item className={classes.input}>
                         <TextField
+                            type='email'
                             className={classes.inputfield}
                             name='email'
                             value={email}
@@ -80,14 +77,7 @@ const SignUp = props => {
                     </Grid>
                     <Grid item className={classes.input}>
                         <TextField
-                            className={classes.inputfield}
-                            name='displayName'
-                            value={displayName}
-                            onChange={handleChange}
-                            label='Display Name' />
-                    </Grid>
-                    <Grid item className={classes.input}>
-                        <TextField
+                            type='password'
                             className={classes.inputfield}
                             name='password'
                             value={password}
@@ -96,25 +86,17 @@ const SignUp = props => {
                     </Grid>
                     <Grid item className={classes.input}>
                         <TextField
+                            type='password'
                             className={classes.inputfield}
                             name='confirmPassword'
                             value={confirmPassword}
                             onChange={handleChange}
                             label='Confirm Password' />
                     </Grid>
-                    <Grid item>
-                        <Grid container className={classes.formContainer}>
-                            <Grid item className={classes.input}>
-                                <Button variant='contained' color='primary' type='submit'>
-                                    SIGN UP
-                                </Button>
-                            </Grid>
-                            <Grid item className={classes.input}>
-                                <Button variant='contained' color='secondary' onClick={signInWithGoogle} >
-                                    SIGN UP with Google
-                                </Button>
-                            </Grid>
-                        </Grid>
+                    <Grid item className={classes.input}>
+                        <Button variant='contained' color='primary' type='submit' className={classes.inputfield}>
+                            SIGN UP
+                        </Button>
                     </Grid>
                 </form>
             </Grid>
