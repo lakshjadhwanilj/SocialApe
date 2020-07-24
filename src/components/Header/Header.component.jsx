@@ -9,7 +9,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Switch, Paper, Typography, Grid, Button, Box } from '@material-ui/core';
 import Brightness2Icon from '@material-ui/icons/Brightness2';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
-import zIndex from '@material-ui/core/styles/zIndex';
 
 const useStyles = makeStyles(theme => ({
     root: {
