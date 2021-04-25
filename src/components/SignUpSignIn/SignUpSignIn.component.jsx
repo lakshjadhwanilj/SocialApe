@@ -38,7 +38,7 @@ const SignUpSignIn = props => {
             <Grid className={classes.root} container direction='column' >
                 <Grid className={classes.textContainer} item>
                     <Typography variant='h6'>Welcome to SocialApe!</Typography>
-                    <Typography variant='subtitle2'>Sign Up / Sign In Now to join fellow Apes</Typography>
+                    <Typography variant='subtitle2'>Sign Up / Sign In Now to join fellow Apes!🐒</Typography>
                 </Grid>
                 <Grid container direction='row' justify='space-around' alignItems='center'>
                     <Grid item>

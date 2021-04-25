@@ -36,13 +36,13 @@ const Header = ({ currentTheme, isDarkMode, onClick, currentUser }) => {
                     </Grid>
                     <Grid item>
                         <Grid component='label' container alignItems='center' spacing={1}>
-                            <Box component={Grid} item display={{ xs: 'none', sm: 'block' }}>
+                            <Box component={Grid} item display={{ xs: 'block', sm: 'block' }}>
                                 <Brightness7Icon />
                             </Box>
                             <Grid item>
                                 <Switch checked={isDarkMode} color='primary' onChange={onClick} />
                             </Grid>
-                            <Box component={Grid} item display={{ xs: 'none', sm: 'block' }}>
+                            <Box component={Grid} item display={{ xs: 'block', sm: 'block' }}>
                                 <Brightness2Icon />
                             </Box>
                         </Grid>
